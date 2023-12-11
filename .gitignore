@@ -25,7 +25,7 @@ pnpm-debug.log*
 
 # IDE - VSCode
 .vscode/*
-
+*.code-workspace
 # my
 test/
 
