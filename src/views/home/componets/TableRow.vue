@@ -1,5 +1,5 @@
 <template>
-  <tr v-show="!isDeleled">
+  <tr v-show="!isDeleted">
     <td>{{ index }}</td>
     <td>{{ blog.uuid }}</td>
     <td>{{ blog.title }}</td>
@@ -23,7 +23,7 @@ export default {
   props: ["blog", "index"],
   data() {
     return {
-      isDeleled: false,
+      isDeleted: false,
     };
   },
   components: {
@@ -38,7 +38,7 @@ export default {
           console.log(res);
           alert("删除成功");
           // this.blog = {}
-          this.isDeleled = true;
+          this.isDeleted = true;
         })
         .catch((err) => {
           console.log(err);
