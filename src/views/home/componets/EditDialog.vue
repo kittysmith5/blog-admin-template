@@ -49,6 +49,13 @@ import blogApi from "@/api/blogApi.js";
 export default {
   name: "EditDialog",
   props: ["editDialogVisible", "data"],
+  propsData: {
+    data: {
+      uuid: "testuuid",
+      title: "test",
+      mdText: "test",
+    },
+  },
   data() {
     return {
       blog: {
