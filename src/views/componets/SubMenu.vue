@@ -10,10 +10,10 @@
 <script>
 export default {
   name: "SubMenu",
-  props: ["title", "path","icon"],
+  props: ["title", "path", "icon"],
   methods: {
     handleSubMenuClick() {
-    //   this.$router.push(this.path);
+      //   this.$router.push(this.path);
     },
   },
   mounted() {
@@ -22,28 +22,33 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+$activeBgColor: rgb(236, 245, 255);
+$activeTextColor: rgb(64, 158, 255);
+$subMenuBorderColor: #dcdfe6;
+$menuFontSize:1.2em;
+
+
 .link {
   color: inherit;
   text-decoration: none;
 }
 
 .active {
-  background: rgb(236, 245, 255);
-  color: rgb(64, 158, 255);
+  background: $activeBgColor;
+  color: $activeTextColor;
 }
 
 .sub-menu {
   height: 50px;
   line-height: 50px;
-  /* text-align: left; */
-padding-left: 20px;
+  padding-left: 20px;
   font-size: 1em;
-  border-bottom: 1px solid #dcdfe6;
+  border-bottom: 1px solid $subMenuBorderColor;
 }
 
 .menu-icon {
-  font-size: 1.2em;
+  font-size: $menuFontSize;
   margin-right: 5px;
 }
 </style>

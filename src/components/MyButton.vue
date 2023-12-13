@@ -24,11 +24,36 @@ export default {
 </script>
 
 
-<style>
-.btn {
+<style lang="scss">
+$small: 50;
+$medium: 40;
+
+$sucess: rgb(103, 194, 58);
+$primary: rgb(64, 158, 255);
+$danger: rgb(245, 108, 108);
+// $default:rgb(220, 223, 230);
+$info: rgb(144, 147, 153);
+$warning: rgb(230, 162, 60);
+
+@mixin btnTheme($color) {
+  background: $color;
+  border: 1px solid rgba($color, 0.5);
+}
+
+@mixin btnSize($size) {
+  height: $size;
+  width: auto;
+  padding: 4px;
+}
+
+button {
   transition: opacity 0.3s ease;
   border-radius: 5px;
   color: white;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.66;
+  }
 }
 
 .btn-default {
@@ -38,43 +63,29 @@ export default {
 }
 
 .btn-primary {
-  background: rgb(64, 158, 255);
-  border: 1px solid rgb(179, 216, 255);
+  @include btnTheme($primary);
 }
 
 .btn-danger {
-  background: rgb(245, 108, 108);
-  border: 1px solid rgb(251, 196, 196);
+  @include btnTheme($danger);
 }
 
 .btn-success {
-  background: rgb(103, 194, 58);
-  border: 1px solid rgb(194, 231, 176);
+  @include btnTheme($sucess);
 }
 
 .btn-info {
-  background: rgb(144, 147, 153);
-  border: 1px solid rgb(211, 212, 214);
+  @include btnTheme($info);
 }
 
 .btn-warning {
-  background: rgb(230, 162, 60);
-  border: 1px solid rgb(245, 218, 177);
+  @include btnTheme($warning);
 }
 
 .btn-small {
-  height: 30px;
-  width: auto;
-  padding: 5px;
+  @include btnSize($small);
 }
 .btn-medium {
-  height: 40px;
-  width: auto;
-  padding: 5px;
-}
-button:hover {
-  cursor: pointer;
-  opacity: 0.66;
-  /* color: black; */
+  @include btnSize($medium);
 }
 </style>

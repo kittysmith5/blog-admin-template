@@ -65,7 +65,7 @@
 <script>
 import VueMarkdown from "vue-markdown";
 // import hljs from 'highlight.js'
-// import 'highlight.js/styles/github.css' 
+// import 'highlight.js/styles/github.css'
 
 import blogApi from "@/api/blogApi.js";
 import EditDialog from "./EditDialog.vue";
@@ -156,7 +156,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #main-table {
   width: 100%;
 }
