@@ -18,40 +18,77 @@
     </table>
     <button @click="mdTextDialogVisible = true">点我显示</button>
     <!-- <my-dialogue v-show="!mdTextDialogVisible"></my-dialogue> -->
-    <my-dialogue v-show="mdTextDialogVisible">
+    <my-dialogue
+      ref="dialogue"
+      v-show="mdTextDialogVisible"
+      :mdTextDialogVisible="mdTextDialogVisible"
+    >
       <template v-slot:header>
-        <span>header</span>
+        <h1>{{ showedBlog.title }}</h1>
       </template>
       <template v-slot:content>
-        <span>content</span>
+        <vue-markdown :key="showedBlog.uuid" style="margin-top:25px;">
+          {{ showedBlog.mdText }}
+        </vue-markdown>
       </template>
       <template v-slot:footer>
-        <span>footer</span>
+        <my-button style="height: 10px" type="primary" size="small"
+          @click="changeMDTextDialog(false)" >确定</my-button
+        >
       </template>
     </my-dialogue>
   </div>
 </template>
 
 <script>
+import VueMarkdown from "vue-markdown";
+
 import blogApi from "@/api/blogApi.js";
 import TableRow from "./TableRow.vue";
 import MyDialogue from "@/components/MyDialogue.vue";
+import MyButton from "@/components/MyButton.vue";
 export default {
   name: "MyTable",
   components: {
     TableRow,
     "my-dialogue": MyDialogue,
+    "my-button": MyButton,
+    VueMarkdown,
   },
   data() {
     return {
       mdTextDialogVisible: false,
       titles: [],
       blogs: [],
+      showedBlog: {
+        title: "",
+        mdText: "",
+        uuid: "",
+      },
     };
   },
   methods: {
     handTestClick() {
       console.log("handTestClick");
+    },
+    changeMDTextDialog(status) {
+      this.mdTextDialogVisible = status;
+    },
+    async getMDTextByUUID(title,uuid) {
+      // console.log(uuid);
+      try {
+        const res = await blogApi.fetchMDTextByUUID(uuid);
+        // console.log(res);
+        this.showedBlog = {
+          title,
+          uuid,
+          mdText: res.data["md_text"],
+        };
+        console.log(this.showedBlog);
+        this.changeMDTextDialog(true);
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
   created() {
@@ -69,6 +106,14 @@ export default {
     blogApi.fetch().then((res) => {
       this.blogs = res.data;
     });
+  },
+  mounted() {
+    this.$refs.dialogue.$on("changeMDTextDialog", this.changeMDTextDialog);
+    this.$bus.$on("getMDTextByUUID", this.getMDTextByUUID);
+  },
+  beforeDestroy() {
+    this.$refs.dialogue.$off("changeMDTextDialog", this.changeMDTextDialog);
+    this.$bus.$off("getMDTextByUUID", this.getMDTextByUUID);
   },
 };
 </script>

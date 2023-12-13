@@ -96,6 +96,7 @@ input {
 }
 
 button {
+  opacity: 0.66;
   font-size: 15px;
   margin-top: 15px;
   height: 40px;
@@ -104,7 +105,7 @@ button {
   color: white;
   border-radius: 5px;
   &:hover {
-    opacity: 0.66;
+    opacity: 1;
     // box-shadow: 0px 10px 5px rgba($mainColor, 0.3);
     transition: 0.5s;
     border: 2px solid $mainColor;

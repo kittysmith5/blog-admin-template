@@ -25,8 +25,8 @@ export default {
 
 
 <style lang="scss">
-$small: 50;
-$medium: 40;
+$small: 30px;
+$medium: 40px;
 
 $sucess: rgb(103, 194, 58);
 $primary: rgb(64, 158, 255);
@@ -42,11 +42,11 @@ $warning: rgb(230, 162, 60);
 
 @mixin btnSize($size) {
   height: $size;
-  width: auto;
+  width: $size*1.618;
   padding: 4px;
 }
 
-button {
+.btn {
   transition: opacity 0.3s ease;
   border-radius: 5px;
   color: white;
@@ -83,6 +83,7 @@ button {
 }
 
 .btn-small {
+  // height: 10px;
   @include btnSize($small);
 }
 .btn-medium {

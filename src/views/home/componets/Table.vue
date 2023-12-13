@@ -45,9 +45,9 @@
         <h1>{{ showedBlog.title }}</h1>
       </template>
       <div class="el-dialog-div">
-        <vue-markdown :key="showedBlog.uuid">{{
-          showedBlog.mdText
-        }}</vue-markdown>
+        <vue-markdown :key="showedBlog.uuid">
+          {{ showedBlog.mdText }}
+        </vue-markdown>
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" @click="handleClose">确 定</el-button>
