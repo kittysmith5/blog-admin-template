@@ -15,12 +15,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .main-app {
   width: 100%;
-  /* height: 100%; */
   min-height: 95vh;
-  /* background-color: rgb(220, 223, 230); */
 }
 
 

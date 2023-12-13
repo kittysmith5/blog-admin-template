@@ -50,7 +50,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+$mainColor: rgb(127, 127, 255);
+
 .login {
   display: flex;
   flex-direction: column;
@@ -58,14 +60,14 @@ export default {
   margin: 0 auto;
   margin-top: 250px;
   width: 333px;
-  border: 2px solid rgb(127, 127, 255);
+  border: 2px solid $mainColor;
   /* up right down left */
   padding: 0 50px 50px 50px;
   border-radius: 33px;
 }
 
 .title {
-  color: rgb(127, 127, 255);
+  color: $mainColor;
   font-size: 35px;
   font-weight: bolder;
   margin: 10px 0;
@@ -74,21 +76,21 @@ export default {
 input {
   height: 40px;
   margin: 10px 0;
-  border: 1px solid rgb(127, 127, 255);
+  border: 1px solid $mainColor;
   font-size: 15px;
   border-radius: 5px;
   text-align: center;
   outline: none;
   box-sizing: border-box;
+  &:focus {
+    border: 2px solid $mainColor;
+  }
+  &::placeholder {
+    color: $mainColor;
+    font-size: 15px;
+  }
 }
 
-input:focus {
-  border: 2px solid rgb(127, 127, 255);
-}
-input::placeholder {
-  color: rgb(127, 127, 255);
-  font-size: 15px;
-}
 .username {
   margin-bottom: 20px;
 }
@@ -98,14 +100,14 @@ button {
   margin-top: 15px;
   height: 40px;
   border: 0;
-  background: rgb(127, 127, 255);
+  background: $mainColor;
   color: white;
   border-radius: 5px;
-}
-button:hover {
-  box-shadow: 0px 10px 5px rgba(127, 127, 255, 0.3);
-  transition: 0.5s;
-  border: 2px solid rgb(127, 127, 255);
-  /* background: rgb(127, 127, 255); */
+  &:hover {
+    opacity: 0.66;
+    // box-shadow: 0px 10px 5px rgba($mainColor, 0.3);
+    transition: 0.5s;
+    border: 2px solid $mainColor;
+  }
 }
 </style>

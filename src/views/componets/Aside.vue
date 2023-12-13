@@ -15,7 +15,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .aside {
   width: 15%;
   height: calc(95vh);

@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .header {
     height: 5vh;
     /* background-color: aqua; */
