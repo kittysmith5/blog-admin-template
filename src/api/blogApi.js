@@ -24,6 +24,7 @@ export default {
                 url: `http://127.0.0.1:9090/blog/fetch-text/${uuid}`,
             }).
                 then(res => {
+                    // console.log(res);
                     resolve(res)
                 }).
                 catch(err => {

@@ -6,7 +6,7 @@ export default {
         return new Promise((resolve, reject) => {
             axios({
                 method: 'post',
-                url: 'http://127.0.0.1:9090/login',
+                url: 'http://127.0.0.1:9090/user/login',
                 data: {
                     username: form.username,
                     password: form.password,

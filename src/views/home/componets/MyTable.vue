@@ -78,11 +78,11 @@ export default {
       // console.log(uuid);
       try {
         const res = await blogApi.fetchMDTextByUUID(uuid);
-        // console.log(res);
+        // console.log("res");
         this.showedBlog = {
           title,
           uuid,
-          mdText: res.data["md_text"],
+          mdText: res.data[0]["md_text"],
         };
         console.log(this.showedBlog);
         this.changeMDTextDialog(true);
